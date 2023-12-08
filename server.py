@@ -199,7 +199,26 @@ def selectIfaceWindows():
         return None
 
 
+def printLogo():
+    a = """
+         o    o                               
+        <|>  <|>                              
+        < \  / >                              
+   o__ __o/  \o__ __o        __o__  \o_ __o   
+  /v     |    |     v\      />  \    |    v\  
+ />     / \  / \     <\   o/        / \    <\ 
+ \      \o/  \o/     o/  <|         \o/     / 
+  o      |    |     <|    \\         |     o  
+  <\__  / \  / \    / \    _\o__</  / \ __/>  
+                                    \o/       
+                                     |        
+                                    / \       
+"""
+    print(a)
+
+
 if __name__ == "__main__":
+    printLogo()
     args = sys.argv
     if len(args) > 1:
         printTips()

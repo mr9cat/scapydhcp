@@ -230,5 +230,8 @@ if __name__ == "__main__":
             print(">>> " + "平台参数错误" + "\n")
         if iface:
             startDhcpServer(iface)
+        else:
+            time.sleep(5)
     else:
         print(">>> " + "未提供平台参数" + "\n")
+        time.sleep(5)

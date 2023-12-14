@@ -9,11 +9,11 @@ import sys
 PacketCount = 0
 
 
-def printCount():
+def printCount(mac):
     global PacketCount
     PacketCount += 1
     seq = f"[{PacketCount}]"
-    print(f"{seq:<8}IP已分配 客户端IP地址 192.168.0.11")
+    print(f"{seq:<8} Assigned IP:192.168.0.11 MAC:{mac}")
 
 
 opOffer = [
@@ -136,14 +136,16 @@ def f(x, interface):
         # offerPack.show2()
         sendp(offerPack, iface=interface, verbose=False)
     elif x[4].options[0][1] == 3:
+        mac = x[0].src
         # print(x[3].xid)
         # print(offerPack[3].xid)
         ackPack[0].dst = x[0].src
         ackPack[3].xid = x[3].xid
         ackPack[3].chaddr = x[3].chaddr
+        # x.show()
         # ackPack.show2()
         sendp(ackPack, iface=interface, verbose=False)
-        printCount()
+        printCount(mac)
 
 
 def startDhcpServer(iface):
